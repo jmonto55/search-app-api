@@ -16,8 +16,10 @@ class FavoriteUsersController < ApplicationController
   # POST /favorite_users
   def create
     @favorite_user = FavoriteUser.new(favorite_user_params)
-
-    if @favorite_user.save
+  
+    if FavoriteUser.exists?(username: @favorite_user.username)
+      render json: { error: 'Username already exists' }, status: :unprocessable_entity
+    elsif @favorite_user.save
       render json: @favorite_user, status: :created, location: @favorite_user
     else
       render json: @favorite_user.errors, status: :unprocessable_entity
