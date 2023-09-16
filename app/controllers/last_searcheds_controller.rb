@@ -3,14 +3,9 @@ class LastSearchedsController < ApplicationController
 
   # GET /last_searcheds
   def index
-    @last_searcheds = LastSearched.all
+    @last_searcheds = LastSearched.order(created_at: :desc).limit(10)
 
     render json: @last_searcheds
-  end
-
-  # GET /last_searcheds/1
-  def show
-    render json: @last_searched
   end
 
   # POST /last_searcheds
@@ -21,15 +16,6 @@ class LastSearchedsController < ApplicationController
       render json: { error: 'Username already exists' }, status: :unprocessable_entity
     elsif @last_searched.save
       render json: @last_searched, status: :created, location: @last_searched
-    else
-      render json: @last_searched.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /last_searcheds/1
-  def update
-    if @last_searched.update(last_searched_params)
-      render json: @last_searched
     else
       render json: @last_searched.errors, status: :unprocessable_entity
     end
