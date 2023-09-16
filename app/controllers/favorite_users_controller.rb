@@ -48,6 +48,6 @@ class FavoriteUsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def favorite_user_params
-      params.require(:favorite_user).permit(:picture, :username, :name, :role, :verified)
+      params.require(:favorite_user).permit(:imageUrl, :username, :name, :professionalHeadline, :verified)
     end
 end

@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_15_224726) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_16_014353) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favorite_users", force: :cascade do |t|
-    t.string "picture"
+    t.string "imageUrl"
     t.string "username"
     t.string "name"
-    t.string "role"
+    t.string "professionalHeadline"
+    t.boolean "verified"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "last_searcheds", force: :cascade do |t|
+    t.string "imageUrl"
+    t.string "username"
+    t.string "name"
+    t.string "professionalHeadline"
     t.boolean "verified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

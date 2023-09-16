@@ -1,4 +1,4 @@
-class FavoriteUser < ApplicationRecord
+class LastSearched < ApplicationRecord
   validates :name, presence: true
   validates :username, presence: true
   validates :professionalHeadline, presence: true

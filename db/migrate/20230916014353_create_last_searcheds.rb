@@ -1,6 +1,6 @@
-class CreateFavoriteUsers < ActiveRecord::Migration[7.0]
+class CreateLastSearcheds < ActiveRecord::Migration[7.0]
   def change
-    create_table :favorite_users do |t|
+    create_table :last_searcheds do |t|
       t.string :imageUrl
       t.string :username
       t.string :name
